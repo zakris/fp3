@@ -14,17 +14,32 @@ Single-cycle machines have much simpler control units than multi-cycle machines.
 # 25 pts. Exercise 1: Control Unit (CU) Design
 The controller is the portion of the CU that looks at the opcode and determines the output signals. As described above, it is a map that links instructions to the activation of the appropriate control signals for that instruction.  Have your Assembly Language, ALU, and DPU designs easily accessible while you work on this design. 
 
-Choos if you group will designing a single cycle or multi-cycle machine. Complete the appropriate table for the type of machine you are designing.
+Choose if you group will designing a single cycle or multi-cycle machine. Complete the appropriate table for the type of machine you are designing.
 
 #### SINGLE CYCLE CU DESIGN:  
 Complete this section if you are doing a single cycle processor. 
 
 Create a table in Fig. 1 with one row for each of your instructions. You can see Table 7.3 on page 384 for an example of what this might look like for your processor.  Basically this is just a simply a list of opcodes followed by all the control signals activated for those opcodes. You have already seen a table like this in the MIPS projects. Use as many columns as needed for your control signals.
 
-*********************************************************************
+***********************************************************************************************
 Fig. 1 Single Cycle CU Main Decoder Truth Table
-*********************************************************************
-
+***********************************************************************************************
+| Instruction   | Opcode | RegWrite | RegDest | ALUSrc | Branch | MemWrite | MemToReg | ALUOp |
+|---------------|--------|----------|---------|--------|--------|----------|----------|-------|
+| R-Type        | 0000   | 1        | 1       |   0    | 00     | 0        | 0        |       |
+| Load          | 0111   | 1        |         |        | 00     | 0        |          |       |
+| Store         | 1000   | 0        |         |        | 00     | 1        |          |       |
+| SLTI          | 1100   | 0        | 0       |        | 00     | 0        |          |       |
+| SLT           | 1101   |          | 0       |        | 00     | 0        |          |       |
+| BEQ           | 0101   |          | 0       |        | 00     | 0        |          |       |
+| BNE           | 0110   |          | 0       |        | 01     | 0        |          |       |
+| BGZ           | 1110   |          | 0       |        | 10     | 0        |          |       |
+| JMP           | 1011   |          | 0       |        | 11     | 0        |          |       |
+| MOVI          | 0100   |          | 0       |        | 00     | 0        |          |       |
+|               |        |          |         |        |        |          |          |       |
+|               |        |          |         |        |        |          |          |       |
+|               |        |          |         |        |        |          |          |       |
+|               |        |          |         |        |        |          |          |       |
 #### MULTI CYCLE CU DESIGN: 
 Complete this section if you are making a multi-cycle CPU. Modify or make your own FSM design language similar to the FSM pseudo-code is shown below in Fig 1 Multi-Cycle. 
 The code shown here is not VHDL, but a simple language that describes a FSM. 

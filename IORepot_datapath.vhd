@@ -34,5 +34,5 @@ architecture struct of datapath is
   begin
     -- next PC logic
     pcreg: flopr generic map(16) port map(clk, reset, pcnext, pc);
-    pcadd1: adder port map(pc, X"00000002", pcplus2);
+    pcadd1: adder port map(pc, X"0002", pcplus2);
   end;

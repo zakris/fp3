@@ -19,7 +19,7 @@ end;
 -- *** each entity must have its own separate library and use statements *** --
 library IEEE; 
 use IEEE.STD_LOGIC_1164.all; 
-use IEEE.STD_LOGIC_UNSIGNED.all;
+use IEEE.NUMERIC_STD.all;
 
 entity flopr is -- flip-flop with synchronous reset
   generic(width: integer);

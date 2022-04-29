@@ -24,22 +24,33 @@ Create a table in Fig. 1 with one row for each of your instructions. You can see
 ***********************************************************************************************
 Fig. 1 Single Cycle CU Main Decoder Truth Table
 ***********************************************************************************************
-| Instruction   | Opcode | RegWrite | RegDest | ALUSrc | Branch | MemWrite | MemToReg | ALUOp |
+| Instruction   | Opcode | RegWrite | RegDest | ALUSrc | Branch | MemWrite | MemToReg | ALUOp[3:0]|
 |---------------|--------|----------|---------|--------|--------|----------|----------|-------|
-| R-Type        | 0000   | 1        | 1       |   0    | 00     | 0        | 0        |       |
-| Load          | 0111   | 1        |         |        | 00     | 0        |          |       |
-| Store         | 1000   | 0        |         |        | 00     | 1        |          |       |
-| SLTI          | 1100   | 0        | 0       |        | 00     | 0        |          |       |
-| SLT           | 1101   |          | 0       |        | 00     | 0        |          |       |
-| BEQ           | 0101   |          | 0       |        | 00     | 0        |          |       |
-| BNE           | 0110   |          | 0       |        | 01     | 0        |          |       |
-| BGZ           | 1110   |          | 0       |        | 10     | 0        |          |       |
-| JMP           | 1011   |          | 0       |        | 11     | 0        |          |       |
-| MOVI          | 0100   |          | 0       |        | 00     | 0        |          |       |
+<!---| R-Type        | 0000   | 1        | 1       | 0      | 00     | 0        | 0   |       |--->
+| Add           | 0000   | 1        | 1       | 0      | 00     | 0        | 0        |       |
+| Sub           | 0001   | 1        | 1       | 0      | 00     | 0        | 0        |       |
+| SLL           | 0010   | 1        | 1       | 0      | 00     | 0        | 0        |       |
+| SRL           | 0011   | 1        | 1       | 0      | 00     | 0        | 0        |       |
+| MOVI          | 0100   | 1        | 0       | 1      | 00     | 0        | 0        | 0     |
+| BEQ           | 0101   | 0        | 0       | 0      | 00     | 0        | 0        |       |
+| BNE           | 0110   | 0        | 0       | 0      | 01     | 0        | 0        |       |
+| Load          | 0111   | 1        | 0       | 1      | 00     | 0        | 1        |       |
+| Store         | 1000   | 0        | 0       | 1      | 00     | 1        | 0        |       |
+| AND           | 1001   | 1        | 1       | 0      | 00     | 0        | 0        |       |
+| OR            | 1010   | 1        | 1       | 0      | 00     | 0        | 0        |       |
+| JMP           | 1011   | 0        | 0       | 0      | 11     | 0        | 0        |       |
+| SLTI          | 1100   | 1        | 0       | 1      | 00     | 0        | 0        |       |
+| SLT           | 1101   | 1        | 0       | 0      | 00     | 0        | 0        |       |
+| BGZ           | 1110   | 0        | 0       | 0      | 10     | 0        | 0        |       |
 |               |        |          |         |        |        |          |          |       |
 |               |        |          |         |        |        |          |          |       |
 |               |        |          |         |        |        |          |          |       |
 |               |        |          |         |        |        |          |          |       |
+
+***********************************************************************************************
+Fig. 2 Single Cycle ALU Decoder Truth Table
+***********************************************************************************************
+
 #### MULTI CYCLE CU DESIGN: 
 Complete this section if you are making a multi-cycle CPU. Modify or make your own FSM design language similar to the FSM pseudo-code is shown below in Fig 1 Multi-Cycle. 
 The code shown here is not VHDL, but a simple language that describes a FSM. 

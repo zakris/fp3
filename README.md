@@ -21,35 +21,57 @@ Complete this section if you are doing a single cycle processor.
 
 Create a table in Fig. 1 with one row for each of your instructions. You can see Table 7.3 on page 384 for an example of what this might look like for your processor.  Basically this is just a simply a list of opcodes followed by all the control signals activated for those opcodes. You have already seen a table like this in the MIPS projects. Use as many columns as needed for your control signals.
 
-***********************************************************************************************
+***************************************************************************************************
 Fig. 1 Single Cycle CU Main Decoder Truth Table
-***********************************************************************************************
+***************************************************************************************************
 | Instruction   | Opcode | RegWrite | RegDest | ALUSrc | Branch | MemWrite | MemToReg | ALUOp[3:0]|
-|---------------|--------|----------|---------|--------|--------|----------|----------|-------|
-<!---| R-Type        | 0000   | 1        | 1       | 0      | 00     | 0        | 0   |       |--->
-| Add           | 0000   | 1        | 1       | 0      | 00     | 0        | 0        |       |
-| Sub           | 0001   | 1        | 1       | 0      | 00     | 0        | 0        |       |
-| SLL           | 0010   | 1        | 1       | 0      | 00     | 0        | 0        |       |
-| SRL           | 0011   | 1        | 1       | 0      | 00     | 0        | 0        |       |
-| MOVI          | 0100   | 1        | 0       | 1      | 00     | 0        | 0        | 0     |
-| BEQ           | 0101   | 0        | 0       | 0      | 00     | 0        | 0        |       |
-| BNE           | 0110   | 0        | 0       | 0      | 01     | 0        | 0        |       |
-| Load          | 0111   | 1        | 0       | 1      | 00     | 0        | 1        |       |
-| Store         | 1000   | 0        | 0       | 1      | 00     | 1        | 0        |       |
-| AND           | 1001   | 1        | 1       | 0      | 00     | 0        | 0        |       |
-| OR            | 1010   | 1        | 1       | 0      | 00     | 0        | 0        |       |
-| JMP           | 1011   | 0        | 0       | 0      | 11     | 0        | 0        |       |
-| SLTI          | 1100   | 1        | 0       | 1      | 00     | 0        | 0        |       |
-| SLT           | 1101   | 1        | 0       | 0      | 00     | 0        | 0        |       |
-| BGZ           | 1110   | 0        | 0       | 0      | 10     | 0        | 0        |       |
-|               |        |          |         |        |        |          |          |       |
-|               |        |          |         |        |        |          |          |       |
-|               |        |          |         |        |        |          |          |       |
-|               |        |          |         |        |        |          |          |       |
+|---------------|--------|----------|---------|--------|--------|----------|----------|-----------|
+<!---
+| R-Type        | 0000   | 1        | 1       | 0      | 00     | 0        | 0        |           |
+--->
+| Add           | 0000   | 1        | 1       | 0      | 00     | 0        | 0        | 0000      |
+| Sub           | 0001   | 1        | 1       | 0      | 00     | 0        | 0        | 0001      |
+| SLL           | 0010   | 1        | 1       | 0      | 00     | 0        | 0        | 0010      |
+| SRL           | 0011   | 1        | 1       | 0      | 00     | 0        | 0        | 0011      |
+| MOVI          | 0100   | 1        | 0       | 1      | 00     | 0        | 0        | 0100      |
+| BEQ           | 0101   | 0        | 0       | 0      | 00     | 0        | 0        | 0101      |
+| BNE           | 0110   | 0        | 0       | 0      | 01     | 0        | 0        | 0110      |
+| Load          | 0111   | 1        | 0       | 1      | 00     | 0        | 1        | 0111      |
+| Store         | 1000   | 0        | 0       | 1      | 00     | 1        | 0        | 1000      |
+| AND           | 1001   | 1        | 1       | 0      | 00     | 0        | 0        | 1001      |
+| OR            | 1010   | 1        | 1       | 0      | 00     | 0        | 0        | 1010      |
+| JMP           | 1011   | 0        | 0       | 0      | 11     | 0        | 0        | 1011      |
+| SLTI          | 1100   | 1        | 0       | 1      | 00     | 0        | 0        | 1100      |
+| SLT           | 1101   | 1        | 0       | 0      | 00     | 0        | 0        | 1101      |
+| BGZ           | 1110   | 0        | 0       | 0      | 10     | 0        | 0        | 1110      |
+|               |        |          |         |        |        |          |          |           |
+|               |        |          |         |        |        |          |          |           |
+|               |        |          |         |        |        |          |          |           |
+|               |        |          |         |        |        |          |          |           |
 
 ***********************************************************************************************
 Fig. 2 Single Cycle ALU Decoder Truth Table
 ***********************************************************************************************
+| Instruction   | Opcode |
+|---------------|--------|
+|               |        |
+|               |        |
+|               |        |
+|               |        |
+|               |        |
+|               |        |
+|               |        |
+|               |        |
+|               |        |
+|               |        |
+|               |        |
+|               |        |
+|               |        |
+|               |        |
+|               |        |
+|               |        |
+|               |        |
+
 
 #### MULTI CYCLE CU DESIGN: 
 Complete this section if you are making a multi-cycle CPU. Modify or make your own FSM design language similar to the FSM pseudo-code is shown below in Fig 1 Multi-Cycle. 

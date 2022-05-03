@@ -10,7 +10,7 @@ top:
 movi r1 r0 10       # this is  a comment
 label1: 
     movi r2 r0 10   # r2 = 0 + 10
-jmp label1          # Go to label1 (line 10)
+jump label1         # Go to label1 (line 10)
 movi r7 r0 21       # r7 = 0 + 21
 movi r3 r0 2        # r3 = 0 + 2
 add r10 r7 r3       # r10 = 21 + 2 (23)

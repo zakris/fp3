@@ -1,0 +1,29 @@
+.variables
+atest word 40
+btest word 4000
+#ctest qword 82
+ctest word 40
+dtest word 4000
+
+.instructions
+top:
+movi r1 r0 10       # this is  a comment
+label1: 
+    movi r2 r0 10   # r2 = 0 + 10
+jmp label1          # Go to label1 (line 10)
+movi r7 r0 21       # r7 = 0 + 21
+movi r3 r0 2        # r3 = 0 + 2
+add r10 r7 r3       # r10 = 21 + 2 (23)
+sll r9 r3 2         # r9 = r3 shifted left by 2 (8)
+and r5 r7 r3        # r5 = r7 AND r3 (0)
+or r5 r7 r3         # r5 = r7 OR r3 (23)
+beq r0 r5 undo      # if(r0 == r5) {goto undo}
+bne r0 r5 undo      # if(r0 != r5) {goto undo}
+undo: 
+    srl r8 r9 2     # r8 = r9 shifted right by 2 (2)
+    sub r2 r10 r3   # r2 = 23 - 2  
+slt r2 r3 r7        # r2 = 1 because 2 < 21              
+slti r2 r7 25       # r2 = 0 because 25 > 21 
+load r4 1$0         # <-- offset
+store r10 2(0)      # store the register value of r4(which is 23) in the second memory address  
+bgz r2 top          # if(r2 > 0) {goto top}

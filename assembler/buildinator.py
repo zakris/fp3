@@ -5,6 +5,13 @@ from sys import stdout
 
 from sympy import N, assemble_partfrac_list
 
+# TODO:
+# Make a def that will run through the text file and grab/store all the labels (with correct addresses to match)
+# The label check from the main should be able to be cut/pasted into here
+
+
+
+
 # Get the address from the given line
 def getAddress(line) :
     address = line.split()[0]
@@ -39,32 +46,34 @@ def intToBin(num) :
 def generateMachineCode(instruction, operands) :
     machineCode = ''
     assemblyTable = {
+        # Instructions:
         'add'   : '0000',
-        'r0'    : '0000',
         'sub'   : '0001',
-        'ir1'   : '0001',
         'sll'   : '0010',
-        'ir2'   : '0010',
         'srl'   : '0011',
-        'pc'    : '0011',
         'movi'  : '0100',
-        'fr'    : '0100',
         'beq'   : '0101',
-        'r1'    : '0101',
         'bne'   : '0110',
-        'r2'    : '0110',
         'and'   : '1001',
-        'r3'    : '0111',
         'or'    : '1010',
         'slti'  : '1100',
         'slt'   : '1101',
-        'r4'    : '1000',
-        'jump'  : '1011',
-        'r5'    : '1001',
+        'jmp'  : '1011',
         'load'  : '0111',
-        'r6'    : '1010',
         'store' : '1000',
         'bgz'   : '1110',
+        # Registers:
+        'r0'    : '0000',
+        'ir1'   : '0001',
+        'ir2'   : '0010',
+        'pc'    : '0011',
+        'fr'    : '0100',
+        'r1'    : '0101',
+        'r2'    : '0110',
+        'r3'    : '0111',
+        'r4'    : '1000',
+        'r5'    : '1001',
+        'r6'    : '1010',
         'r7'    : '1011',
         'r8'    : '1100',
         'r9'    : '1101',
@@ -152,9 +161,6 @@ for x in line : # for each index in line
             index +=1
 
             print('variable handling here')
-
-
-
         else:
             #label check
             #if label check is true jump to where label is defined might need another for loop here to do so

@@ -72,7 +72,22 @@ def generateMachineCode(instruction, operands) :
         'r11'   : '1111',
     }
     # If the instruction is jmp type, just grab the machine code and return/leave
-    if instruction == 'jmp':
+    if instruction == 'jump':
+        machineCode += assemblyTable[instruction]
+        return machineCode
+    elif instruction == 'beq':
+        machineCode += assemblyTable[instruction]
+        return machineCode
+    elif instruction == 'bne':
+        machineCode += assemblyTable[instruction]
+        return machineCode
+    elif instruction == 'load':
+        machineCode += assemblyTable[instruction]
+        return machineCode
+    elif instruction == 'store':
+        machineCode += assemblyTable[instruction]
+        return machineCode
+    elif instruction == 'bgz':
         machineCode += assemblyTable[instruction]
         return machineCode
     # All other instructions are handled here
